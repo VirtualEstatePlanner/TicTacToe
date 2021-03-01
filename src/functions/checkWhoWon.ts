@@ -1,8 +1,14 @@
+import Scene from "phaser";
 import victoryConditions from "../consts/winningLines";
 import IGameState from "../interfaces/IGameState";
+import celebrateVictory from "./celebrateVictory";
 import isBoardFull from "./isBoardFull";
 
-const checkWhoWon: Function = (state: IGameState): IGameState => {
+const checkWhoWon: Function = (
+  state: IGameState,
+  scene: Phaser.Scene
+): IGameState => {
+  const isBoardFullState: IGameState = isBoardFull(state);
   let didSomeoneWinState: IGameState = state;
   for (
     let lineToCheck = 0;
@@ -11,16 +17,19 @@ const checkWhoWon: Function = (state: IGameState): IGameState => {
   ) {
     const winLine = victoryConditions[lineToCheck];
     if (
-      state.boardState[winLine[0]].belongsTo == state.currentPlayer &&
-      state.boardState[winLine[1]].belongsTo == state.currentPlayer &&
-      state.boardState[winLine[2]].belongsTo == state.currentPlayer
+      isBoardFullState.boardState[winLine[0]].belongsTo ==
+        isBoardFullState.currentPlayer &&
+      isBoardFullState.boardState[winLine[1]].belongsTo ==
+        isBoardFullState.currentPlayer &&
+      isBoardFullState.boardState[winLine[2]].belongsTo ==
+        isBoardFullState.currentPlayer
     ) {
       didSomeoneWinState.isGameOver = true;
-      didSomeoneWinState.winningPlayer = state.currentPlayer;
+      didSomeoneWinState.winningPlayer = isBoardFullState.currentPlayer;
+      celebrateVictory(lineToCheck, didSomeoneWinState, scene);
       return didSomeoneWinState;
     }
   }
-  const isBoardFullState: IGameState = isBoardFull(didSomeoneWinState);
   return isBoardFullState;
 };
 
