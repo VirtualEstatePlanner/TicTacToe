@@ -1,5 +1,6 @@
 import Phaser from "phaser";
-import GameScene from "./scenes/Game";
+import BootScene from "../scenes/BootScene";
+import PlayGameScene from "../scenes/PlayGameScene";
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -7,12 +8,12 @@ const config: Phaser.Types.Core.GameConfig = {
   backgroundColor: "#000000",
   audio: { noAudio: true },
   scale: {
-    width: 1920,
-    height: 1080,
+    width: 620,
+    height: 620,
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  scene: [GameScene],
+  scene: [BootScene, PlayGameScene],
 };
 
 export default config;
