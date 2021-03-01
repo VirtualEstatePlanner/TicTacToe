@@ -4,53 +4,41 @@ import IWinningLine from "../interfaces/IWinningLine";
 import PlayGameScene from "../scenes/PlayGameScene";
 
 const celebrateVictory: Function = (
-  winLine: IWinningLine,
+  rowOfThree: IWinningLine,
   state: IGameState,
   scene: PlayGameScene
 ) => {
-  let victoryState: IGameState = { ...state };
-
-  victoryState.isGameOver = true;
   scene.tweens.killAll();
-
+  let victoryState: IGameState = { ...state };
   let x = (config.scale!.width! as number) / 2;
   let y = (config.scale!.height! as number) / 2;
-
-  let celebrationText: string;
+  let celebrationText: string = `It's a draw!`;
 
   if (state.winningPlayer == `X`) {
-    celebrationText = "X WINS!";
+    celebrationText = `X WINS!`;
   } else if (state.winningPlayer == `O`) {
-    celebrationText = "O WINS!";
-  } else {
-    celebrationText = "It's a draw!";
+    celebrationText = `O WINS!`;
   }
 
-  let label = scene.add.text(x, y, celebrationText, {
+  let gameOverLabel = scene.add.text(x, y, celebrationText, {
     fontSize: "104px Arial",
     color: "#FFFFFF",
-    backgroundColor: "#00OOFF",
+    backgroundColor: "#0000FF",
   });
-  label.setOrigin(0.5, 0.5);
+  gameOverLabel.setOrigin(0.5, 0.5);
+  gameOverLabel.setInteractive();
+  gameOverLabel.on("pointerdown", function () {
+    scene.create();
+  });
 
-  label.setInteractive();
-
-  label.on(
-    "pointerdown",
-    function () {
-      scene.create();
-    },
-    this
-  );
-
-  label = scene.add.text(x, y, celebrationText, {
+  gameOverLabel = scene.add.text(x, y, celebrationText, {
     fontSize: "104px Arial",
     color: "#O0FF00",
   });
-  label.setOrigin(0.5, 0.5);
+  gameOverLabel.setOrigin(0.5, 0.5);
 
   scene.tweens.add({
-    targets: label,
+    targets: gameOverLabel,
     alpha: 0,
     ease: "Power1",
     duration: 1000,
@@ -62,7 +50,7 @@ const celebrateVictory: Function = (
     // animate winning line of victorious player
     for (
       let winningCell: number = 0;
-      winningCell < winLine.length;
+      winningCell < rowOfThree.length;
       winningCell++
     ) {
       let sprite = victoryState.boardState[winningCell].texture;
