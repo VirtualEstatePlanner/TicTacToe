@@ -1,0 +1,8 @@
+.DS_Store
+yarn.lock
+package-lock.json
+.gradle/
+ios/
+android/
+dist/
+node_modules/

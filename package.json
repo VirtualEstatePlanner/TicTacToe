@@ -1,0 +1,52 @@
+{
+  "name": "your-package-name",
+  "productName": "YOUR_APP_SHORT_NAME",
+  "version": "0.0.1",
+  "buildVersion": "0.0.1",
+  "description": "YOUR_APPLICATION_DESCRIPTON",
+  "private": "true",
+  "author": "YOUR_NAME <YOUR_EMAIL_ADDRESS> (https://github.com/YOUR_GITHUB_USER)",
+  "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_GITHUB_USER/YOUR_GITHUB_REPO.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_GITHUB_USER/YOUR_GITHUB_REPO/issues"
+  },
+  "homepage": "https://github.com/YOUR_GITHUB_USER/YOUR_GITHUB_REPO#readme",
+  "main": "dist/index.js",
+  "scripts": {
+    "cap-prepare": "yarn cap add ios && yarn cap sync ios && yarn cap add android && yarn cap sync android",
+    "cap-a": "cap sync android && cap open android",
+    "cap-i": "cap sync ios && cap open ios",
+    "clean": "rm -rf .gradle android dist ios node_modules yarn.lock && mkdir dist && cp index.html dist && yarn && yarn cap-prepare",
+    "build": "vite build",
+    "dev": "vite",
+    "redev": "yarn clean && yarn build && yarn dev",
+    "serve": "vite preview",
+    "build-a": "yarn build && yarn cap-a",
+    "build-i": "yarn build && yarn cap-i"
+  },
+  "devDependencies": {
+    "@capacitor/android": "latest",
+    "@capacitor/cli": "latest",
+    "@capacitor/core": "latest",
+    "@capacitor/ios": "latest",
+    "@types/node": "latest",
+    "@types/prettier": "latest",
+    "@rollup/plugin-alias": "latest",
+    "@rollup/plugin-commonjs": "latest",
+    "@rollup/plugin-replace": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-compat": "latest",
+    "eslint-plugin-prettier": "latest",
+    "phaser": "latest",
+    "prettier": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  }
+}

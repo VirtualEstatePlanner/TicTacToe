@@ -1,0 +1,6 @@
+{
+  "appId": "com.TROPIC.MyApp",
+  "appName": "TROPIC Template",
+  "bundledWebRuntime": false,
+  "webDir": "dist"
+}
