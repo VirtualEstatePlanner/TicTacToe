@@ -1,4 +1,4 @@
 import Phaser from "phaser";
-import config from "./consts/config";
+import config from "./constants/config";
 
 new Phaser.Game(Object.assign(config));
