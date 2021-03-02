@@ -1,10 +1,10 @@
 <h1 align="center">
-  Typescript ROllup Phaser in Capacitor
+  Tic Tac Toe in a webapp, iOS app, or Android app
 </h1>
 
 ## Find and replace these values in the entire project
 
-Since you most likely found this template on GitHub, it assumes you are a GitHub User. If you are using a different version control system for your application then you will need to change some URLs in your `package.json` file.
+Since you most likely found this repo on GitHub, it assumes you are a GitHub User. If you are using a different version control system for your application then you will need to change some URLs in your `package.json` file.
 
 To start your project, you should find and replace the following symbols project-wide in VS Code by hitting `crtl-shift-f` _(or `command-shift-f` on macOS)_:
 
@@ -59,4 +59,4 @@ After cloning the repo, run `yarn redev` from your project directory. Then, you 
 
 ## Production
 
-After running `yarn build`, the files you need for production will be on the `dist` folder. To test code on your `dist` folder, run `yarn serve` and navigate to http://localhost:5000. To build and publish your Android or iOS applications, you will need to complete the build process from XCode or Android Studio.
+After running `yarn build`, the files you need for production will be on the `dist` folder. To test code on your `dist` folder, run `yarn serve` and navigate to http://localhost:5000. To build and publish your Android or iOS applications, you will need to run `yarn cap-prepare` and then either `yarn cap-a`, or `yarn cap-i`.  You can complete the build process from XCode or Android Studio.
