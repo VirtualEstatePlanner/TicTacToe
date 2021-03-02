@@ -45,8 +45,9 @@ class PlayGameScene extends Phaser.Scene {
         const thisCellWasClicked: Function = (): void => {
           // check if game has ended
           const moveResultState: IGameState = cellClicked(
-            gameState,
-            newCell.cellKey
+            newCell.cellKey,
+            this,
+            gameState
           );
           if (gameState.currentPlayer != moveResultState.currentPlayer) {
             // compare currentPlayer before click to currentPlayer after click

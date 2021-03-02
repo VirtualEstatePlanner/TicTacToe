@@ -1,4 +1,4 @@
-import config from "../consts/config";
+import config from "../constants/config";
 import IGameState from "../interfaces/IGameState";
 import IWinningLine from "../interfaces/IWinningLine";
 import PlayGameScene from "../scenes/PlayGameScene";
@@ -65,4 +65,5 @@ const celebrateVictory: Function = (
     }
   }
 };
+
 export default celebrateVictory;

@@ -1,5 +1,5 @@
 import Scene from "phaser";
-import victoryConditions from "../consts/winningLines";
+import victoryConditions from "../constants/winningLines";
 import IGameState from "../interfaces/IGameState";
 import celebrateVictory from "./celebrateVictory";
 import isBoardFull from "./isBoardFull";
